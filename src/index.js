@@ -20,6 +20,7 @@ function createBankManager() {
         withdrawal(amount) {
             if (!isNaN(amount) && amount > 0) {
                 account.balance -= amount
+                addHistory('withdrawal', amount)
             }
 		},
 		history() {

@@ -99,7 +99,7 @@ describe('Bank Account Management', function () {
         })
     })
 
-    describe('When I want to see one deposits', function () {
+    describe('When I want to see history after one deposits', function () {
         const BankManager = createBankManager()
         BankManager.deposit(42)
 
@@ -116,7 +116,7 @@ describe('Bank Account Management', function () {
         })
     })
 
-    describe('When I want to see many deposits', function () {
+    describe('When I want to see history after many deposits', function () {
         const BankManager = createBankManager()
         BankManager.deposit(42)
         BankManager.deposit(3)
@@ -144,5 +144,49 @@ describe('Bank Account Management', function () {
         })
     })
 
+    describe('When I want to see history after one withdrawal', function () {
+        const BankManager = createBankManager()
+        BankManager.withdrawal(10)
+
+        const expectedHistory = [{
+            operation: 'withdrawal',
+            date: new Date().toJSON().slice(0, 10),
+            amount: 10,
+            balance: -10
+        }]
+
+        it('should return the expected history', function () {
+            assert.deepEqual(BankManager.history(), expectedHistory)
+        })
+    })
+
+    describe('When I want to see history after many withdrawals', function () {
+        const BankManager = createBankManager()
+        BankManager.withdrawal(10)
+        BankManager.withdrawal(40)
+        BankManager.withdrawal(50)
+
+        const expectedHistory = [{
+            operation: 'withdrawal',
+            date: new Date().toJSON().slice(0, 10),
+            amount: 10,
+            balance: -10
+        }, {
+            operation: 'withdrawal',
+            date: new Date().toJSON().slice(0, 10),
+            amount: 40,
+            balance: -50
+       }, {
+            operation: 'withdrawal',
+            date: new Date().toJSON().slice(0, 10),
+            amount: 50,
+            balance: -100
+        }]
+
+        it('should return the expected history', function () {
+            assert.deepEqual(BankManager.history(), expectedHistory)
+        })
+    })
+    
 })
 
