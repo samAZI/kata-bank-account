@@ -12,6 +12,11 @@ function createBankManager() {
         	if (!isNaN(amount) && amount > 0) {
                 account.balance += amount
 			}
+		},
+        withdrawal(amount) {
+            if (!isNaN(amount) && amount > 0) {
+                account.balance -= amount
+            }
 		}
 	}
 }
