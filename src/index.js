@@ -1,6 +1,12 @@
-const main = function (number) {
+
+function createBankManager() {
+	return {
+        getBalance() {
+			return 0
+		}
+	}
 }
 
 module.exports = {
-	main,
+	createBankManager,
 }
