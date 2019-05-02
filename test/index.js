@@ -90,6 +90,15 @@ describe('Bank Account Management', function () {
             assert.equal(BankManager.getBalance(), 0)
         })
     })
-	
+
+    describe('When I dit nothing and I want to see history', function () {
+        const BankManager = createBankManager()
+
+        it('should return an empty object', function () {
+            assert.deepEqual(BankManager.history(), {})
+        })
+    })
+
+
 })
 

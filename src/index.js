@@ -1,7 +1,8 @@
 
 function createBankManager() {
 	const account = {
-		balance: 0
+		balance: 0,
+		history: {}
 	}
 
 	return {
@@ -17,6 +18,9 @@ function createBankManager() {
             if (!isNaN(amount) && amount > 0) {
                 account.balance -= amount
             }
+		},
+		history() {
+        	return account.history
 		}
 	}
 }
