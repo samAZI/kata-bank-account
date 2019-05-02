@@ -118,25 +118,25 @@ describe('Bank Account Management', function () {
 
     describe('When I want to see history after many deposits', function () {
         const BankManager = createBankManager()
-        BankManager.deposit(42)
-        BankManager.deposit(3)
         BankManager.deposit(5)
+        BankManager.deposit(3)
+        BankManager.deposit(42)
 
         const expectedHistory = [{
             operation: 'deposit',
             date: new Date().toJSON().slice(0, 10),
             amount: 42,
-            balance: 42
+            balance: 50
         }, {
             operation: 'deposit',
             date: new Date().toJSON().slice(0, 10),
             amount: 3,
-            balance: 45
+            balance: 8
         }, {
             operation: 'deposit',
             date: new Date().toJSON().slice(0, 10),
             amount: 5,
-            balance: 50
+            balance: 5
         }]
 
         it('should return the expected history', function () {
@@ -162,25 +162,25 @@ describe('Bank Account Management', function () {
 
     describe('When I want to see history after many withdrawals', function () {
         const BankManager = createBankManager()
-        BankManager.withdrawal(10)
-        BankManager.withdrawal(40)
         BankManager.withdrawal(50)
+        BankManager.withdrawal(40)
+        BankManager.withdrawal(10)
 
         const expectedHistory = [{
             operation: 'withdrawal',
             date: new Date().toJSON().slice(0, 10),
             amount: 10,
-            balance: -10
+            balance: -100
         }, {
             operation: 'withdrawal',
             date: new Date().toJSON().slice(0, 10),
             amount: 40,
-            balance: -50
+            balance: -90
        }, {
             operation: 'withdrawal',
             date: new Date().toJSON().slice(0, 10),
             amount: 50,
-            balance: -100
+            balance: -50
         }]
 
         it('should return the expected history', function () {

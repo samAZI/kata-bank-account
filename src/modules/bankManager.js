@@ -30,7 +30,7 @@ const createBankManager = function () {
 
 	// private method
     const addHistory = function (operation, amount) {
-        account.history.push({
+        account.history.unshift({
             operation,
             date: new Date().toJSON().slice(0, 10),
             amount,
