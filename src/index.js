@@ -1,17 +1,20 @@
 
 function createBankManager() {
+	//state
 	const account = {
 		balance: 0,
-		history: {}
+		history: []
 	}
 
-	return {
+    // public methods
+    const bankManager = {
         getBalance() {
 			return account.balance
 		},
         deposit(amount) {
         	if (!isNaN(amount) && amount > 0) {
                 account.balance += amount
+                addHistory('deposit', amount)
 			}
 		},
         withdrawal(amount) {
@@ -21,8 +24,20 @@ function createBankManager() {
 		},
 		history() {
         	return account.history
-		}
+		},
 	}
+
+	// private method
+    const addHistory = function (operation, amount) {
+        account.history.push({
+            operation,
+            date: new Date().toJSON().slice(0, 10),
+            amount,
+            balance: account.balance
+        })
+    }
+
+	return bankManager
 }
 
 module.exports = {

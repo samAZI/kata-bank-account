@@ -94,11 +94,55 @@ describe('Bank Account Management', function () {
     describe('When I dit nothing and I want to see history', function () {
         const BankManager = createBankManager()
 
-        it('should return an empty object', function () {
-            assert.deepEqual(BankManager.history(), {})
+        it('should return an empty array', function () {
+            assert.deepEqual(BankManager.history(), [])
         })
     })
 
+    describe('When I want to see one deposits', function () {
+        const BankManager = createBankManager()
+        BankManager.deposit(42)
+
+		const expectedHistory = [{
+            operation: 'deposit',
+			date: new Date().toJSON().slice(0, 10),
+			amount: 42,
+			balance: 42
+		}]
+
+        it('should return the expected history', function () {
+
+            assert.deepEqual(BankManager.history(), expectedHistory)
+        })
+    })
+
+    describe('When I want to see many deposits', function () {
+        const BankManager = createBankManager()
+        BankManager.deposit(42)
+        BankManager.deposit(3)
+        BankManager.deposit(5)
+
+        const expectedHistory = [{
+            operation: 'deposit',
+            date: new Date().toJSON().slice(0, 10),
+            amount: 42,
+            balance: 42
+        }, {
+            operation: 'deposit',
+            date: new Date().toJSON().slice(0, 10),
+            amount: 3,
+            balance: 45
+        }, {
+            operation: 'deposit',
+            date: new Date().toJSON().slice(0, 10),
+            amount: 5,
+            balance: 50
+        }]
+
+        it('should return the expected history', function () {
+            assert.deepEqual(BankManager.history(), expectedHistory)
+        })
+    })
 
 })
 
