@@ -1,26 +1,29 @@
-Bank account kata
-Think of your personal bank account experience. When in doubt, go for the simplest solution
-Requirements
-Deposit and Withdrawal
-Account statement (date, amount, balance)
-Statement printing
-The expected result is a service API, and its underlying implementation, that meets the expressed needs.
-a basic UI implementing functionality only, no fancy design, 
-Nothing more,especially no persistence.
+# kataBankAccount
 
-User Stories
+> Write a program that simulate a bank account management system.
 
-US 1:
+### Packages used
+- __[mocha](https://github.com/mochajs/mocha)__ - JavaScript test framework running on Node.js.
+- __[husky](https://github.com/typicode/husky)__ - Git hooks made easy
+
+### To do list
+- [x] US 1:
 In order to save money
 As a bank client
 I want to make a deposit in my account
 
-US 2:
+- [x] US 2:
 In order to retrieve some or all of my savings
 As a bank client
 I want to make a withdrawal from my account
 
-US 3:
+- [x] US 3:
 In order to check my operations
 As a bank client
 I want to see the history (operation, date, amount, balance) of my operations
+
+- [ ] US 4:
+Implement a basic UI interface
+
+### Run tests
+`npm run test`
