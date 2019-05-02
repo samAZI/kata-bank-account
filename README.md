@@ -2,9 +2,10 @@
 
 > Write a program that simulate a bank account management system.
 
+[Project demo accessible here](https://samazi.github.io./#)
+
 ### Packages used
 - __[mocha](https://github.com/mochajs/mocha)__ - JavaScript test framework running on Node.js.
-- __[husky](https://github.com/typicode/husky)__ - Git hooks made easy
 
 ### To do list
 - [x] US 1:
@@ -22,8 +23,14 @@ In order to check my operations
 As a bank client
 I want to see the history (operation, date, amount, balance) of my operations
 
-- [ ] US 4:
+- [x] US 4:
 Implement a basic UI interface
+
+### Install
+`npm install`
+
+### Start
+Open the file `src/index.html` in your favorite navigator.
 
 ### Run tests
 `npm run test`
