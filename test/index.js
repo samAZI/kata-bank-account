@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { createBankManager } = require('../src/index.js')
+const { createBankManager } = require('../src/modules/bankManager')
 
 describe('Bank Account Management', function () {
 

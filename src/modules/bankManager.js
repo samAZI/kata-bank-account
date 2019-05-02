@@ -1,5 +1,5 @@
 
-function createBankManager() {
+const createBankManager = function () {
 	//state
 	const account = {
 		balance: 0,
@@ -42,5 +42,5 @@ function createBankManager() {
 }
 
 module.exports = {
-	createBankManager,
+    createBankManager,
 }
